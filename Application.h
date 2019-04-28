@@ -5,18 +5,18 @@
 
 class Application {
 public:
-	SDL_Window* window;
-	SDL_Surface* canvas;
-
-	Application(const char* title, int width, int height);
-
-	virtual void handleInput(SDL_Event event);
-	virtual void update();
-	virtual void render(double lag);
-
-	void run();
-
-	~Application();
+  SDL_Window* window;
+  SDL_Surface* canvas;
+  
+  Application(const char* title, int width, int height);
+  
+  virtual void handleInput(SDL_Event event);
+  virtual void update();
+  virtual void render(double lag);
+  
+  void run();
+  
+  ~Application();
 };
 
 #endif
