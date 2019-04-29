@@ -2,13 +2,11 @@
 #include <SDL2/SDL.h>
 #include <time.h>
 
-const int UPDATES_PER_SEC = 30;
-const int MS_PER_UPDATE = 1000 / UPDATES_PER_SEC;
-
-Application::Application(const char* title, int width, int height) {
+Application::Application(const char* title, int width, int height, int updates_per_second) {
   SDL_Init(SDL_INIT_VIDEO);
   window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
   canvas = SDL_GetWindowSurface(window);
+  ms_per_update = 1000 / updates_per_second;
 }
 
 void Application::handleInput(SDL_Event event) {
@@ -40,13 +38,13 @@ void Application::run() {
     // UPDATE
     clock_t current_time = clock();
     clock_t elapsed_time = current_time - previous_time;
-    for (int update_iterations = elapsed_time / MS_PER_UPDATE; update_iterations > 0; update_iterations--) {
+    for (int update_iterations = elapsed_time / ms_per_update; update_iterations > 0; update_iterations--) {
       update();
-      previous_time += MS_PER_UPDATE;
+      previous_time += ms_per_update;
     }
     // RENDER
     double lag = current_time - previous_time;
-    double lag_ratio = lag / MS_PER_UPDATE;
+    double lag_ratio = lag / ms_per_update;
     render(lag_ratio);
     SDL_UpdateWindowSurface(window);
   }

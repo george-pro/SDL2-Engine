@@ -13,6 +13,7 @@ public:
   
   Key* getKey(int keycode);
   void handleInput(SDL_Event event);
+  bool extractStatus(int keycode);
 };
 
 #endif

@@ -7,8 +7,9 @@ class Application {
 public:
   SDL_Window* window;
   SDL_Surface* canvas;
+  int ms_per_update;
   
-  Application(const char* title, int width, int height);
+  Application(const char* title, int width, int height, int updates_per_second);
   
   virtual void handleInput(SDL_Event event);
   virtual void update();

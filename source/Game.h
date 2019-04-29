@@ -8,12 +8,11 @@
 class Game : public Application {
 public:
   Keyboard* keyboard;
-  
   Sprite* block;
   int x;
   int y;
   
-  Game(const char* title, int width, int height);
+  Game();
   
   void handleInput(SDL_Event event);
   void update();

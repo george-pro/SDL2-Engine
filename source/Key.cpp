@@ -2,6 +2,7 @@
 
 Key::Key() {
   pressed = false;
+  clicked = false;
 }
 
 void Key::press() {
@@ -10,8 +11,5 @@ void Key::press() {
 
 void Key::release() {
   pressed = false;
-}
-
-bool Key::isPressed() {
-	return pressed;
+  clicked = true;
 }

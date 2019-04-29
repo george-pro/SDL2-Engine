@@ -4,12 +4,12 @@
 class Key {
 public:
   bool pressed;
+  bool clicked;
   
   Key();
   
   void press();
   void release();
-  bool isPressed();
 };
 
 #endif

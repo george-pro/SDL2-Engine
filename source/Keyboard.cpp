@@ -23,3 +23,16 @@ void Keyboard::handleInput(SDL_Event event) {
     }
   }
 }
+
+bool Keyboard::extractStatus(int keycode) {
+  Key* key = getKey(keycode);
+  
+  if (key->clicked) {
+    key->clicked = false;
+    return true;
+  } else if (key->pressed) {
+    return true;
+  } else {
+    return false;
+  }
+}
