@@ -5,9 +5,9 @@
 #include <iostream>
 
 const char* WINDOW_TITLE = "My Game";
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-const int UPDATES_PER_SEC = 12;
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
+const int UPDATES_PER_SEC = 120;
 
 Game::Game() : Application(WINDOW_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, UPDATES_PER_SEC) {
   int keys[] = {SDLK_UP, SDLK_DOWN, SDLK_LEFT, SDLK_RIGHT};
@@ -27,10 +27,10 @@ void Game::update() {
   bool left = keyboard->extractStatus(SDLK_LEFT);
   bool right = keyboard->extractStatus(SDLK_RIGHT);
   
-  if (up) y -= 64 / 2;
-  if (down) y += 64 / 2;
-  if (left) x -= 64 / 2;
-  if (right) x += 64 / 2;
+  if (up) y -= 1;
+  if (down) y += 1;
+  if (left) x -= 1;
+  if (right) x += 1;
 }
 
 void Game::render(double lag) {
